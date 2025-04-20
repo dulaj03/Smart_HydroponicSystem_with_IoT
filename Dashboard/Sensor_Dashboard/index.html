@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+    <h1>Sensor Data Dashboard</h1>
+
+    <div class="time-range-selector" id="timeRangeSelector" style="display: none;">
+        <select id="timeRange">
+            <option value="1">Last 1 hour</option>
+            <option value="6">Last 6 hours</option>
+            <option value="12">Last 12 hours</option>
+            <option value="24">Last 24 hours</option>
+            <option value="168">Last week</option>
+        </select>
+        <button id="fetchHistory">Fetch History</button>
+        <button id="closeHistory">Close</button>
+    </div>
+
+    <div class="data-container">
+        <div class="data-box" data-sensor="humidity">
+            <h3>Humidity</h3>
+            <div class="gauge humidity">
+                <div class="fill"></div>
+            </div>
+            <p class="value" id="value-humidity">Loading...</p>
+            <button class="history-btn" data-sensor="humidity">View History</button>
+        </div>
+
+        <div class="data-box" data-sensor="temperature">
+            <h3>Temperature</h3>
+            <div class="gauge temperature">
+                <div class="fill"></div>
+            </div>
+            <p class="value" id="value-temperature">Loading...</p>
+            <button class="history-btn" data-sensor="temperature">View History</button>
+        </div>
+
+        <div class="data-box" data-sensor="ph">
+            <h3>pH Level</h3>
+            <div class="gauge ph">
+                <div class="fill"></div>
+            </div>
+            <p class="value" id="value-ph">Loading...</p>
+            <button class="history-btn" data-sensor="ph">View History</button>
+        </div>
+
+        <div class="data-box" data-sensor="sodium">
+            <h3>Sodium</h3>
+            <div class="gauge sodium">
+                <div class="fill"></div>
+            </div>
+            <p class="value" id="value-sodium">Loading...</p>
+            <button class="history-btn" data-sensor="sodium">View History</button>
+        </div>
+
+        <div class="data-box" data-sensor="potassium">
+            <h3>Potassium</h3>
+            <div class="gauge potassium">
+                <div class="fill"></div>
+            </div>
+            <p class="value" id="value-potassium">Loading...</p>
+            <button class="history-btn" data-sensor="potassium">View History</button>
+        </div>
+
+        <div class="data-box" data-sensor="phosphorus">
+            <h3>Phosphorus</h3>
+            <div class="gauge phosphorus">
+                <div class="fill"></div>
+            </div>
+            <p class="value" id="value-phosphorus">Loading...</p>
+            <button class="history-btn" data-sensor="phosphorus">View History</button>
+        </div>
+    </div>
+
+    <h2>Alerts</h2>
+    <div class="table-container">
+        <table class="alert-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Sensor</th>
+                    <th>Value</th>
+                    <th>Alert Message</th>
+                </tr>
+            </thead>
+            <tbody id="alertTableBody">
+               
+            </tbody>
+        </table>
+    </div>
+
+    <button id="clearAllButton" class="clear-button">Clear All</button>
+
+    <div class="charts-container">
+        <div class="chart-box" id="chartBox" style="display: none;">
+            <canvas id="sensorChart"></canvas>
+        </div>
+        <div class="chart-box" id="historyChartBox" style="display: none;">
+            <canvas id="historyChart"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
