@@ -15,9 +15,9 @@ This smart system also supports healthy plant growth with minimal human input, e
 
 ## Technologies and Tools used
 
-- Sensors :- DHT22, pH Sensor, Soil Moisture Sensor, NPK Sensor, Soil Moisture and Temperature Sensor, Waterproof Ultra Sonic Sensor, Light Sensor.
+- Sensors :- DHT22, pH Sensor, Soil Moisture Sensor, NPK Sensor ( RS485 ), Soil Moisture and Temperature Sensor ( MTD50 ), Waterproof Ultra Sonic Sensor ( JSN-SR04T ), Light Sensor.
 - Modules :- Arduino Mega 2560 board, ESP8266 Wi-Fi Module, 2 channel Relay Module, Bug Converter, pH Sensor Module, NPK Sensor Module, Soil Moisture and Temperature Module, Buzzer Module.
-- Hardware Components :- Water Pump Motor, Solenoid Valve, Solar Panel, Solar Controller, Inverter ( to convert AC to DC ), Battery, Circuit Breakers, LCD display, Grow Lights, Nutrient Mixture and Controller, Breadboard, Jumper Wires, Electrical Wires.
+- Hardware Components :- Water Pump Motor, Solenoid Valve, Solar Panel, Solar Controller, Inverter ( to convert DC to AC ), Battery, Circuit Breakers, LCD display, Grow Lights, Nutrient Mixture and Controller, Breadboard, Jumper Wires, Electrical Wires.
 - Web based Dashboard :- HTML, CSS and JS used for developed Dashboard.
 - Backend :- Using PHP all the real-time data stored in a database. Database implemented using
 phpMyAdmin with XAMPP server.
