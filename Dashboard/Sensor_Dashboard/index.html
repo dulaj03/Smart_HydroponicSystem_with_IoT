@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sensor Data Dashboard</title>
+    <link rel="icon" type="image/png" href="Images/Logo.jpg">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -53,13 +54,13 @@
             <button class="history-btn" data-sensor="ph">View History</button>
         </div>
 
-        <div class="data-box" data-sensor="sodium">
-            <h3>Sodium</h3>
-            <div class="gauge sodium">
+        <div class="data-box" data-sensor="Nitrogen">
+            <h3>Nitrogen</h3>
+            <div class="gauge Nitrogen">
                 <div class="fill"></div>
             </div>
-            <p class="value" id="value-sodium">Loading...</p>
-            <button class="history-btn" data-sensor="sodium">View History</button>
+            <p class="value" id="value-Nitrogen">Loading...</p>
+            <button class="history-btn" data-sensor="Nitrogen">View History</button>
         </div>
 
         <div class="data-box" data-sensor="potassium">
@@ -79,6 +80,8 @@
             <p class="value" id="value-phosphorus">Loading...</p>
             <button class="history-btn" data-sensor="phosphorus">View History</button>
         </div>
+
+
     </div>
 
     <h2>Alerts</h2>
@@ -108,6 +111,63 @@
             <canvas id="historyChart"></canvas>
         </div>
     </div>
+
+    <!-- Logout Button (moving) -->
+    <button id="logoutBtn" class="logout-button" onclick="window.location.href='login.html'">Logout</button>
+
+    <!-- Refresh Button (fixed at bottom-right) -->
+    <button id="refreshBtn" class="refresh-button" onclick="location.reload();">🔄 Refresh</button>
+
+    <style>
+        /* Refresh Button - Fixed Bottom Right */
+        .refresh-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        .refresh-button:hover {
+            background: #138496;
+        }
+
+        /* Logout Button - Animated Top Left */
+        .logout-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            animation: slideLeftRight 2s infinite ease-in-out;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        .logout-button:hover {
+            background: #c82333;
+        }
+
+        @keyframes slideLeftRight {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+    </style>
+
 
     <script src="script.js"></script>
 </body>

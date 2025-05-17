@@ -1,4 +1,4 @@
-const espIP = 'http://192.168.1.16/sensor'; 
+const espIP = 'http://192.168.153.35/sensor'; 
 const historyAPI = 'get_data.php';
 
 let chartInstance = null;
@@ -10,7 +10,7 @@ let chartData = {
     humidity: [],
     temperature: [],
     ph: [],
-    sodium: [],
+    Nitrogen: [],
     potassium: [],
     phosphorus: []
 };
@@ -146,7 +146,7 @@ function drawHistoryChart(data) {
         humidity: 'rgba(0, 123, 255, 0.6)',
         temperature: 'rgba(255, 99, 132, 0.6)',
         ph: 'rgba(54, 162, 235, 0.6)',
-        sodium: 'rgba(255, 206, 86, 0.6)',
+        Nitrogen: 'rgba(255, 206, 86, 0.6)',
         potassium: 'rgba(75, 192, 192, 0.6)',
         phosphorus: 'rgba(153, 102, 255, 0.6)'
     };
@@ -224,7 +224,7 @@ function formatSensorValue(sensor, value) {
     const units = {
         humidity: "%",
         temperature: "°C",
-        sodium: " mg/L",
+        Nitrogen: " mg/L",
         potassium: " mg/L",
         phosphorus: " mg/L"
     };
@@ -256,7 +256,7 @@ function drawChart() {
         humidity: 'rgba(0, 123, 255, 0.6)',
         temperature: 'rgba(255, 99, 132, 0.6)',
         ph: 'rgba(54, 162, 235, 0.6)',
-        sodium: 'rgba(255, 206, 86, 0.6)',
+        Nitrogen: 'rgba(255, 206, 86, 0.6)',
         potassium: 'rgba(75, 192, 192, 0.6)',
         phosphorus: 'rgba(153, 102, 255, 0.6)'
     };
@@ -325,7 +325,7 @@ function checkAlerts(data, time) {
     if (data.humidity > 80 && !existingAlerts.has("Humidity")) alerts.push({ sensor: "Humidity", value: `${data.humidity}%`, message: "Too High!" });
     if (data.temperature > 35 && !existingAlerts.has("Temperature")) alerts.push({ sensor: "Temperature", value: `${data.temperature}°C`, message: "Overheating!" });
     if ((data.ph < 5 || data.ph > 8) && !existingAlerts.has("pH Level")) alerts.push({ sensor: "pH Level", value: data.ph, message: "Unstable pH!" });
-    if (data.sodium > 50 && !existingAlerts.has("Sodium")) alerts.push({ sensor: "Sodium", value: `${data.sodium} mg/L`, message: "High Sodium!" });
+    if (data.Nitrogen > 50 && !existingAlerts.has("Nitrogen")) alerts.push({ sensor: "Nitrogen", value: `${data.Nitrogen} mg/L`, message: "High Nitrogen!" });
     if (data.potassium > 50 && !existingAlerts.has("Potassium")) alerts.push({ sensor: "Potassium", value: `${data.potassium} mg/L`, message: "High Potassium!" });
     if (data.phosphorus > 50 && !existingAlerts.has("Phosphorus")) alerts.push({ sensor: "Phosphorus", value: `${data.phosphorus} mg/L`, message: "High Phosphorus!" });
 
